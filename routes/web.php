@@ -13,21 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+    // Rutas para las Secciones
+Route::get('/', function () { return view('index'); });
 
-Route::get('/menu', function () {
-    return view('pages.menu');
-});
+Route::get('/menu', function () { return view('pages.menu'); });
 
-Route::get('/forum', function () {
-    return view('pages.forum');
-});
+Route::get('/forum', function () { return view('pages.forum'); });
 
-Route::get('/contact', function () {
-    return view('pages.contact');
-});
+Route::get('/contact', function () { return view('pages.contact');});
 
 
     // Rutas para el Registro
@@ -44,6 +37,20 @@ Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'handle
 
 Route::post('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'handle'])
 ->name('logout.handle');
+
+
+    // Rutas para las Recetas
+Route::resource(('/recipes'), App\Http\Controllers\RecipeController::class);
+Route::get('/recipes/{recipe}/delete',[App\Http\Controllers\RecipeController::class, 'delete'])
+-> name('recipes.delete');
+Route::get('/recipes/{user}/my-recipes',[App\Http\Controllers\RecipeController::class, 'recipesUser'])
+-> name('recipes.user');
+
+
+
+
+
+
 
     // Middleware de control de rutas para acceso de autentificación
 // Route::middleware(['auth'])->group(function (){

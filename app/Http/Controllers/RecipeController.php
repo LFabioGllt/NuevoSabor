@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Recipe;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RecipeController extends Controller
@@ -12,7 +13,18 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        //
+        // $recipes = Recipe::get();
+        $recipes = Recipe::paginate(5);
+
+        return view('pages/menu', compact('recipes'));
+    }
+
+
+    public function recipesUser()
+    {
+        $my_recipes = Recipe::where('user_id', auth()->user()->id)->get();
+
+        return view('profile/index', compact('my_recipes'));
     }
 
     /**
@@ -20,7 +32,7 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        //
+        return view ('profile/create');
     }
 
     /**
@@ -28,7 +40,14 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        if (isset($data['image'])) {
+            $data['image'] = $filename = time().".".$data["image"]->extension();
+            $request->image->move(public_path("imgs/recipes"), $filename);
+        }
+
+        Recipe::create($data);
+        return to_route('recipes.index')->with('success','Recipe created');
     }
 
     /**
@@ -36,7 +55,7 @@ class RecipeController extends Controller
      */
     public function show(Recipe $recipe)
     {
-        //
+        return view ('profile/show', compact('recipe'));
     }
 
     /**
@@ -44,7 +63,7 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        //
+        return view ('profile/edit', compact('recipe'));
     }
 
     /**
@@ -52,7 +71,18 @@ class RecipeController extends Controller
      */
     public function update(Request $request, Recipe $recipe)
     {
-        //
+        $data = $request->all();
+        if (isset($data['image'])) {
+          $data['image'] = $filename = time().".".$data["image"]->extension();
+          $request->image->move(public_path("imgs/recipes"), $filename);
+        }
+
+        $recipe->update($data); //Actualizar en la base de datos a través del modelo.
+        return to_route('recipes.index')->with('success','Updated Recipe');
+    }
+
+    public function delete(Recipe $recipe){
+        echo view ('profile/delete', compact('recipe'));
     }
 
     /**
@@ -60,6 +90,7 @@ class RecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
-        //
+        $recipe->delete();
+        return to_route('recipes.index')->with('delete','Recipe Deleted');
     }
 }

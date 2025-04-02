@@ -1,6 +1,6 @@
 <div>
     <a href="/">Home</a>
-    <a href="/menu">Menu</a>
+    <a href="{{route('recipes.index')}}">Menu</a>
     <a href="/forum">Forum</a>
     <a href="/contact">Contact</a>
     <br>
@@ -9,7 +9,7 @@
 
     <br>
     @if (auth()->user() != null)
-        <a href="#">{{ auth()->user()->name }}</a>
+        <a href="{{route('recipes.user', auth()->user()->name)}}">{{auth()->user()->name}}</a>
         <form action="{{route('logout.handle')}}" method="POST">
             @csrf
             <a href="{{route('logout.handle')}}" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
