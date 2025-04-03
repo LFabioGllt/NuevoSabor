@@ -16,11 +16,7 @@ use Illuminate\Support\Facades\Route;
     // Rutas para las Secciones
 Route::get('/', function () { return view('index'); });
 
-Route::get('/menu', function () { return view('pages.menu'); });
-
-Route::get('/forum', function () { return view('pages.forum'); });
-
-Route::get('/contact', function () { return view('pages.contact');});
+Route::get('/contact', function () { return view('pages.contact'); });
 
 
     // Rutas para el Registro
@@ -46,9 +42,12 @@ Route::get('/recipes/{recipe}/delete',[App\Http\Controllers\RecipeController::cl
 Route::get('/recipes/{user}/my-recipes',[App\Http\Controllers\RecipeController::class, 'recipesUser'])
 -> name('recipes.user');
 
-
-
-
+    // Rutas para los Comentarios
+Route::resource(('/comments'), App\Http\Controllers\CommentController::class);
+Route::get('/comments/{comment}/delete',[App\Http\Controllers\CommentController::class, 'delete'])
+-> name('comments.delete');
+Route::get('/comments/{user}/my-comments',[App\Http\Controllers\CommentController::class, 'commentsUser'])
+-> name('comments.user');
 
 
 

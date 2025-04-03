@@ -12,7 +12,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::paginate(5);
+
+        return view('forum/index', compact('comments'));
     }
 
     /**
@@ -28,7 +30,8 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Comment::create($request->all());
+        return to_route('comments.index')->with('success','Comment added');
     }
 
     /**
@@ -44,7 +47,7 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        return view ('forum/edit', compact('comment'));
     }
 
     /**
@@ -52,7 +55,15 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $comment->update($request->all());
+        return to_route('comments.index')->with('success','Updated Comment');
+    }
+
+    /**
+     * Show the form for deleting the specified resource.
+     */
+    public function delete(Comment $comment){
+        echo view ('forum/delete', compact('comment'));
     }
 
     /**
@@ -60,6 +71,7 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return to_route('comments.index')->with('delete','Comment Deleted');
     }
 }

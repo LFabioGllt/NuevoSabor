@@ -13,7 +13,6 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        // $recipes = Recipe::get();
         $recipes = Recipe::paginate(5);
 
         return view('pages/menu', compact('recipes'));
@@ -77,10 +76,13 @@ class RecipeController extends Controller
           $request->image->move(public_path("imgs/recipes"), $filename);
         }
 
-        $recipe->update($data); //Actualizar en la base de datos a través del modelo.
+        $recipe->update($data);
         return to_route('recipes.index')->with('success','Updated Recipe');
     }
 
+    /**
+     * Show the form for deleting the specified resource.
+     */
     public function delete(Recipe $recipe){
         echo view ('profile/delete', compact('recipe'));
     }

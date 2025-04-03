@@ -1,7 +1,7 @@
 <div>
     <a href="/">Home</a>
     <a href="{{route('recipes.index')}}">Menu</a>
-    <a href="/forum">Forum</a>
+    <a href="{{route('comments.index')}}">Forum</a>
     <a href="/contact">Contact</a>
     <br>
 
