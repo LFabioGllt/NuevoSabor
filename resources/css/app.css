@@ -1,0 +1,40 @@
+@import 'Bootstrap';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+  /* Fuentes Tipográficas */
+.fnt-oleo{ font-family: 'Oleo Script', cursive; }
+.fnt-ssp{ font-family: 'Source Serif Pro'; }
+  /* Títulos */
+.ttl-1{ font-size: clamp(2rem, 8vw, 5rem); }
+.ttl-2{ font-size: clamp(1rem, 4vw, 2.5rem); }
+  /* Colores */
+.txt-clr-l{ color: white; }
+
+  /* Altura de seccion */
+.h-scctn{ height: clamp(200px, 50vw, 500px); }
+
+  /* Banners */
+.bnnr-home{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(/public/imgs/banners/b_home2.png);
+  background-size: max(75rem, 100%);
+  background-position: center;
+}
+
+  /* Fondos */
+.bg-clr-p{ background-color: #18120D; }
+.bg-clr-s{ background-color: #447D62; }
+.bg-clr-w{ background-color: white; }
+.bg-clr-b{ background-color: rgb(43, 43, 43); }
+
+.branches-section {
+  background-color: #4F6F52;
+  color: white;
+  text-align: center;
+}
+.branches-section img {
+  width: 100%;
+  border-radius: 10px;
+}

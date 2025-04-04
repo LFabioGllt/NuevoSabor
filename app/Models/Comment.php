@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-
-    protected $fillable = [
-        'content',
-        'reply_to',
-        'user_id',
-    ];
+  protected $fillable = [
+    'content',
+    'reply_to',
+    'user_id',
+  ];
 }

@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recipe extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $fillable = [
-        'name_rec',
-        'user_id',
-        'ingredients',
-        'instructions',
-        'recomendation',
-        'image'
-    ];
+  protected $fillable = [
+    'name_rec',
+    'user_id',
+    'ingredients',
+    'instructions',
+    'recomendation',
+    'image'
+  ];
 }
