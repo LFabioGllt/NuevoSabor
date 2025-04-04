@@ -12,7 +12,9 @@ class UserController extends Controller
    */
   public function index()
   {
-    //
+    $users = User::paginate(5);
+
+    return view('admin/users/index', compact('users'));
   }
 
   /**
@@ -56,10 +58,18 @@ class UserController extends Controller
   }
 
   /**
+   * Show the form for deleting the specified resource.
+   */
+  public function delete(User $user){
+    echo view ('admin/users/delete', compact('user'));
+  }
+
+  /**
    * Remove the specified resource from storage.
    */
   public function destroy(User $user)
   {
-    //
+    $user->delete();
+    return to_route('users.index')->with('delete','User Deleted');
   }
 }

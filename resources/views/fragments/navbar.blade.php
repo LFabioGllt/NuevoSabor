@@ -12,7 +12,7 @@
               {{auth()->user()->name}}
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{route('recipes.user', auth()->user()->name)}}">
+              <li><a class="dropdown-item" href="{{route('recipes.user', auth()->user()->id)}}">
                 My Recipes
               </a></li>
               <li><hr class="dropdown-divider"></li>

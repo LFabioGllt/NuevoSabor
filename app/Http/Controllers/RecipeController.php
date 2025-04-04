@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use App\Models\Recipe;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -33,7 +34,8 @@ class RecipeController extends Controller
    */
   public function create()
   {
-    return view ('profile/create');
+    $menus = Menu::pluck('id', 'name_menu');
+    return view ('profile/create', compact('menus'));
   }
 
   /**
@@ -48,7 +50,7 @@ class RecipeController extends Controller
     }
 
     Recipe::create($data);
-    return to_route('recipes.index')->with('success','Recipe created');
+    return to_route('recipes.user', auth()->user()->id )->with('success','Recipe created');
   }
 
   /**
@@ -79,7 +81,7 @@ class RecipeController extends Controller
     }
 
     $recipe->update($data);
-    return to_route('recipes.index')->with('success','Updated Recipe');
+    return to_route('recipes.user', auth()->user()->id )->with('success','Updated Recipe');
   }
 
   /**
@@ -95,6 +97,6 @@ class RecipeController extends Controller
   public function destroy(Recipe $recipe)
   {
     $recipe->delete();
-    return to_route('recipes.index')->with('delete','Recipe Deleted');
+    return to_route('recipes.user', auth()->user()->id )->with('delete','Recipe Deleted');
   }
 }

@@ -4,17 +4,17 @@
 
 <table>
   <thead>
-    Are you sure you want to delete the recipe {{$recipe->name_rec}}?
+    Are you sure you want to delete the menu {{$menu->name_menu}}?
   </thead>
   <tbody>
     <tr>
       <td>
-        <form action="{{route('recipes.index')}}">
+        <form action="{{route('menus.index')}}">
           <button type="submit"> Cancel </button>
         </form>
       </td>
       <td>
-        <form action="{{route('recipes.destroy', $recipe->id)}}" method="POST">
+        <form action="{{route('menus.destroy', $menu->id)}}" method="POST">
           @csrf
           @method('DELETE')
 

@@ -1,5 +1,6 @@
 <section class="container-fluid h-scctn bnnr-home">
   <h1 class="text-center ttl-1 fnt-oleo txt-clr-l">Sabor Totonaco</h1>
+  <a href="/admin">ADMIN</a>
 </section>
 
 <section class="container-fluid h-scctn bg-clr-w d-flex align-items-center">

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name_rec', 50);
             $table->foreignId('user_id')->unsigned();
+            $table->foreignId('menu_id')->unsigned();
             $table->string('ingredients', 500);
             $table->string('instructions', 1500);
             $table->string('recomendation', 500);
@@ -23,6 +24,8 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')
+            ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('menu_id')->references('id')->on('menus')
             ->onDelete('cascade')->onUpdate('cascade');
         });
     }
