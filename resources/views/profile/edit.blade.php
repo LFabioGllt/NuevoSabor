@@ -2,45 +2,61 @@
 
 @section('main-section')
 
-<h2>Update {{$recipe->name_rec}}</h2>
+<section class="container-fluid p-5 bg-clr-w d-flex align-items-center">
+  <div class="container">
+    <div class="login-container p-3 m-auto">
+      <h2 class="ttl-2 fnt-oleo txt-clr-t">Update {{$recipe->name_rec}}</h2>
+      <form action="{{route('recipes.update', $recipe->id)}}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PATCH')
 
-<form action="{{route('recipes.update', $recipe->id)}}" method="POST" enctype="multipart/form-data">
-  @csrf
-  @method('PATCH')
+        <div class="mb-3"> {{-- Nombre de la Receta --}}
+          <label for="name_rec" class="form-label">Recipe Name</label>
+          <input type="text" class="form-control brdr-0" name="name_rec" value="{{$recipe->name_rec}}">
+          {{-- @error('name_product') @include('fragments/errorsv') @enderror --}}
+        </div>
 
-    {{-- Nombre de la Receta --}}
-  <label for="name_rec">Recipe Name</label> <br>
-  <input type="text" name="name_rec" value="{{$recipe->name_rec}}">
-  <br><br>
+          {{-- Id del Usuario --}}
+        <input type="text" name="user_id" value="{{auth()->user()->id}}" hidden>
 
-    {{-- Id del Usuario --}}
-  <input type="text" name="user_id" value="{{ auth()->user()->id }}" hidden>
+        <div class="mb-3"> {{-- Ingredientes --}}
+          <label for="ingredients" class="form-label">Ingredients</label>
+          <textarea name="ingredients" class="form-control brdr-0">{{$recipe->ingredients}}</textarea>
+        </div>
 
-    {{-- Ingredientes --}}
-  <label for="ingredients">Ingredients</label> <br>
-  <textarea name="ingredients" cols="50" rows="5">{{$recipe->ingredients}}</textarea>
-  <br><br>
+        <div class="mb-3"> {{-- Instrucciones --}}
+          <label for="instructions" class="form-label">Instructions</label>
+          <textarea name="instructions" class="form-control brdr-0">{{$recipe->instructions}}</textarea>
+        </div>
 
-    {{-- Instrucciones --}}
-  <label for="instructions">Instructions</label> <br>
-  <textarea name="instructions" cols="50" rows="5">{{$recipe->instructions}}</textarea>
-  <br><br>
+        <div class="mb-3"> {{-- Recomendaciones --}}
+          <label for="recomendation" class="form-label">Recomendation</label>
+          <textarea name="recomendation" class="form-control brdr-0">{{$recipe->recomendation}}</textarea>
+        </div>
 
-    {{-- Recomendaciones --}}
-  <label for="recomendation">Recomendation</label> <br>
-  <textarea name="recomendation" cols="50" rows="5">{{$recipe->recomendation}}</textarea>
-  <br><br>
+        <div class="mb-3"> {{-- Imagen --}}
+          <label for="image" class="form-label">Image</label> <br>
+          <input type="file" class="form-control brdr-0" name="image">
+        </div>
 
-    {{-- Imagen --}}
-  <label for="image">Image</label> <br>
-  <input type="file" name="image" id="formFile">
-  <br><br>
+        <div class="mb-3"> {{-- Referencia --}}
+          <label for="menu_id" class="form-label">Menu type</label> <br>
+          <select name="menu_id" class="form-control brdr-0">
+            <option value="1">None</option>
+            @foreach ($menus as $mn => $id)
+              <option value="{{$id}}">{{$mn}}</option>
+            @endforeach
+          </select>
+          <br><br>
+        </div>
 
-  <button type="submit"> Save </button>
-</form>
-
-<br>
-<a type="button" href="{{route('recipes.index')}}"> Return </a>
-<br><br>
+        <div class="text-end">
+          <a type="button" class="btn btn-secondary brdr-0" href="{{route('recipes.user', auth()->user()->id)}}">Cancel</a>
+          <button type="submit" class="btn btn-warning brdr-0">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
 @endsection

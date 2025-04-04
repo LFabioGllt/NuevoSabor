@@ -72,13 +72,6 @@ class MenuController extends Controller
   }
 
   /**
-   * Show the form for deleting the specified resource.
-   */
-  public function delete(Menu $menu){
-    echo view ('admin/menus/delete', compact('menu'));
-  }
-
-  /**
    * Remove the specified resource from storage.
    */
   public function destroy(Menu $menu)

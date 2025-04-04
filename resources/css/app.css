@@ -4,37 +4,147 @@
   /* Fuentes Tipográficas */
 .fnt-oleo{ font-family: 'Oleo Script', cursive; }
 .fnt-ssp{ font-family: 'Source Serif Pro'; }
-  /* Títulos */
+  /* Tamaños */
 .ttl-1{ font-size: clamp(2rem, 8vw, 5rem); }
 .ttl-2{ font-size: clamp(1rem, 4vw, 2.5rem); }
   /* Colores */
 .txt-clr-l{ color: white; }
+.txt-clr-g{ color: #555; }
+.txt-clr-b{ color: black; }
+.txt-clr-s{ color: #4F6F52; }
+.txt-clr-t{ color: #a58240; }
+.txt-clr-d{ color: #8d2929; }
 
   /* Altura de seccion */
-.h-scctn{ height: clamp(200px, 50vw, 500px); }
+.h-sctn{ height: auto; }
+@media (min-width: 768px) {
+  .h-sctn{ height: clamp(200px, 50vw, 500px); }
+}
+.img-sctn img{
+  width: 100%;
+}
 
   /* Banners */
-.bnnr-home{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url(/public/imgs/banners/b_home2.png);
+.bnnr-sctn{
+  height: clamp(200px, 50vw, 500px);
+  display: flex; align-items: center; justify-content: center;
   background-size: max(75rem, 100%);
   background-position: center;
 }
+.bnnr-home{ background-image: url(/public/imgs/banners/b_home.png); }
+.bnnr-menu{ background-image: url(/public/imgs/banners/b_menu.png); }
+.bnnr-forum{ background-image: url(/public/imgs/banners/b_forum.png); }
+.bnnr-contact{ background-image: url(/public/imgs/banners/b_contact.png); }
 
   /* Fondos */
 .bg-clr-p{ background-color: #18120D; }
-.bg-clr-s{ background-color: #447D62; }
+.bg-clr-s{ background-color: #4F6F52; } /*#447D62*/
+.bg-clr-t{ background-color: #a58240; }
 .bg-clr-w{ background-color: white; }
-.bg-clr-b{ background-color: rgb(43, 43, 43); }
+.bg-clr-b{ background-color: #2b2b2b; }
 
-.branches-section {
+
+.brdr-0{
+  border-radius: 0;
+}
+
+
+.login-container {
+  width: clamp(100px, 60%, 500px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+  /* Estilos Preguntas Frecuentes */
+.faq-container {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.accordion-button:not(.collapsed) {
   background-color: #4F6F52;
   color: white;
-  text-align: center;
 }
-.branches-section img {
-  width: 100%;
-  border-radius: 10px;
+.accordion-body {
+  color: #333;
+  background-color: #f0f0f0;
+}
+
+  /* Estilos Comentarios */
+.comment {
+  display: flex; align-items: center;
+  border-bottom: 1px solid #ddd;
+  /* transition: background-color 0.3s ease; */
+}
+/* .comment:hover {
+  background-color: #f1f1f1;
+} */
+.comment img {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: 2px solid #a58240;
+}
+.comment-content { flex-grow: 1; }
+.comment-actions { gap: 15px; }
+.comment-actions i {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.comment-actions i:hover {
+  color: #a58240;
+  transform: scale(1.2);
+}
+
+  /* Estilos Recetas */
+.card {
+  border: none;
+  overflow: hidden;
+}
+.card p {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.rcp-card {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rcp-crd:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); }
+.rcp-crd img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.my-rcp-card {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.my-rcp-crd img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.dsh-crd {
+  border-bottom: 1px solid #ddd;
+}
+
+
+.tbl-admin th {
+  background-color: #4F6F52;
+  color: white;
+}
+
+
+.fab-add {
+  background-color: #555;
+  border-radius: 50%;
+  position: fixed;
+  top: 100px;
+  right: 30px;
+  filter: drop-shadow(1px 1px 2px #555);
+}
+.fab-add:hover {
+  color: #dedede;
+  transform: scale(1.1);
 }

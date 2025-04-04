@@ -29,7 +29,7 @@
         <div class="col-md-4 mx-auto my-3"> {{-- Columna --}}
           <h6 class="mb-4 font-weight-bold">CONTACT</h6>
           <p><i class="fas fa-home mr-3"></i> Benito Juárez #710 Papantla de Olarte, Ver.</p>
-          <p><i class="fas fa-envelope mr-3"></i> info_contacto@SaborTotonaco.com</p>
+          <p><i class="fas fa-envelope mr-3"></i> contacto@sabortotonaco.com</p>
           <p><i class="fas fa-phone mr-3"></i> + 52 784 102 2304</p>
         </div>
       </div>

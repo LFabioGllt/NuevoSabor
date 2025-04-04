@@ -16,7 +16,7 @@ class RecipeController extends Controller
   {
     $recipes = Recipe::paginate(5);
 
-    return view('pages/menu', compact('recipes'));
+    return view('menu/index', compact('recipes'));
   }
 
   /**
@@ -66,7 +66,8 @@ class RecipeController extends Controller
    */
   public function edit(Recipe $recipe)
   {
-    return view ('profile/edit', compact('recipe'));
+    $menus = Menu::pluck('id', 'name_menu');
+    return view ('profile/edit', compact('recipe', 'menus'));
   }
 
   /**
@@ -82,13 +83,6 @@ class RecipeController extends Controller
 
     $recipe->update($data);
     return to_route('recipes.user', auth()->user()->id )->with('success','Updated Recipe');
-  }
-
-  /**
-   * Show the form for deleting the specified resource.
-   */
-  public function delete(Recipe $recipe){
-    echo view ('profile/delete', compact('recipe'));
   }
 
   /**

@@ -36,9 +36,6 @@ Route::post('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'hand
 
   // Rutas para el Menu
 Route::resource(('/menus'), App\Http\Controllers\MenuController::class);
-Route::get('/menus/{menu}/delete',[App\Http\Controllers\MenuController::class, 'delete'])
--> name('menus.delete');
-
 
   // Rutas para los Usuarios
 Route::resource(('/users'), App\Http\Controllers\UserController::class);
@@ -47,8 +44,6 @@ Route::get('/users/{user}/delete',[App\Http\Controllers\UserController::class, '
 
   // Rutas para las Recetas
 Route::resource(('/recipes'), App\Http\Controllers\RecipeController::class);
-Route::get('/recipes/{recipe}/delete',[App\Http\Controllers\RecipeController::class, 'delete'])
--> name('recipes.delete');
 Route::get('/recipes/{id}/my-recipes',[App\Http\Controllers\RecipeController::class, 'recipesUser'])
 -> name('recipes.user');
 
