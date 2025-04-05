@@ -1,8 +1,12 @@
 @extends('layout/main_template')
 
-@section('main-section')
+@section('admin-section')
 
 <h2 class="ttl-2 fnt-oleo txt-clr-p my-4 ms-5">USERS</h2>
+
+<a class="txt-clr-l ttl-2" href="{{route('users.create')}}">
+  <i class="fab-add fa-solid fa-circle-plus"></i>
+</a>
 
 <div class="table-responsive">
   <table class="table table-striped tbl-admin">
@@ -10,6 +14,7 @@
       <th>ID</th>
       <th>Name</th>
       <th>Email</th>
+      <th>Role</th>
       <th>Created</th>
       <th>Actions</th>
     </thead>
@@ -19,6 +24,7 @@
           <td>{{$usr->id}}</td>
           <td>{{$usr->name}}</td>
           <td>{{$usr->email}}</td>
+          <td>{{$usr->getRoleNames()->first()}}</td>
           <td>
             {{$usr->created_at->DiffForHumans()}}
           </td>

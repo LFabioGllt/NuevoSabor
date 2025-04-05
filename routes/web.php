@@ -34,14 +34,6 @@ Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'handle
 Route::post('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'handle'])
 ->name('logout.handle');
 
-  // Rutas para el Menu
-Route::resource(('/menus'), App\Http\Controllers\MenuController::class);
-
-  // Rutas para los Usuarios
-Route::resource(('/users'), App\Http\Controllers\UserController::class);
-Route::get('/users/{user}/delete',[App\Http\Controllers\UserController::class, 'delete'])
--> name('users.delete');
-
   // Rutas para las Recetas
 Route::resource(('/recipes'), App\Http\Controllers\RecipeController::class);
 Route::get('/recipes/{id}/my-recipes',[App\Http\Controllers\RecipeController::class, 'recipesUser'])
@@ -55,6 +47,28 @@ Route::get('/comments/{user}/my-comments',[App\Http\Controllers\CommentControlle
 -> name('comments.user');
 
 
+
+Route::group(['middleware' => ['role:admin']], function () {
+    // Rutas para los Usuarios
+  Route::resource(('/users'), App\Http\Controllers\UserController::class);
+    // Rutas para el Menu
+  Route::resource(('/menus'), App\Http\Controllers\MenuController::class);
+    // Rutas para las Recetas
+  Route::get('/admin/recipes',[App\Http\Controllers\AdminController::class, 'recipesIndex'])
+  -> name('recipes.admin');
+  Route::get('/admin/{recipe}/edit',[App\Http\Controllers\AdminController::class, 'editRecipe'])
+  -> name('recipes.edit.admin');
+  Route::patch('/admin/{recipe}',[App\Http\Controllers\AdminController::class, 'updateRecipe'])
+  -> name('recipes.update.admin');
+  Route::delete('/admin/{recipe}',[App\Http\Controllers\AdminController::class, 'destroyRecipe'])
+  -> name('recipes.destroy.admin');
+    // Rutas para los Comentarios
+  Route::get('/admin/comments',[App\Http\Controllers\AdminController::class, 'commentsIndex'])
+  -> name('comments.admin');
+  Route::delete('/admin/{comment}',[App\Http\Controllers\AdminController::class, 'destroyComment'])
+  -> name('comments.destroy.admin');
+  //rutas accesibles solo para clientes
+});
   // Middleware de control de rutas para acceso de autentificación
 // Route::middleware(['auth'])->group(function (){
   // Route::resource(('/products'), App\Http\Controllers\ProductController::class);

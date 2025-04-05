@@ -1,6 +1,6 @@
 @extends('layout/main_template')
 
-@section('main-section')
+@section('admin-section')
 
 <h2 class="ttl-2 fnt-oleo txt-clr-p my-4 ms-5">MENUS</h2>
 
@@ -53,7 +53,7 @@
                 <h1 class="modal-title fs-5" id="mdl-menu{{$mn->id}}Label">{{$mn->name_menu}}</h1>
               </div>
               <div class="modal-body img-sctn">
-                <img src="/imgs/menus/{{$mn->image}}" alt="mnipe">
+                <img src="/imgs/menus/{{$mn->image}}" alt="menu">
               </div>
             </div>
           </div>

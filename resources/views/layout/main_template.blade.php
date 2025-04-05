@@ -11,13 +11,16 @@
   <title>NuevoSabor</title>
 </head>
 <body>
-  @include('fragments/navbar')
+  @if(auth()->user() != null && auth()->user()->hasRole('admin'))
+    @include('admin/fragments/navbar')
 
-  {{-- @include('fragments/errorsv') --}}
-  {{-- @include('fragments/alerts') --}}
+    @yield('admin-section')
+  @else
+    @include('fragments/navbar')
 
-  @yield('main-section')
+    @yield('main-section')
 
-  @include('fragments/footer')
+    @include('fragments/footer')
+  @endif
 </body>
 </html>

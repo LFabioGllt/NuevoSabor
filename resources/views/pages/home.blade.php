@@ -1,6 +1,5 @@
 <section class="container-fluid bnnr-sctn bnnr-home">
   <h1 class="text-center fw-bold ttl-1 fnt-oleo txt-clr-l">Sabor Totonaco</h1>
-  <a href="/admin">ADMIN</a>
 </section>
 
 <section class="container-fluid p-5 h-sctn bg-clr-w d-flex align-items-center">
@@ -14,7 +13,7 @@
             de la tierra y cuentan historias únicas.</p>
         </div>
         <div class="col-md-6 img-sctn">
-          <img src="imgs/banners/prueba.png"  alt="We">
+          <img src="imgs/home/we.png"  alt="We">
         </div>
       </div>
     </section>
@@ -27,21 +26,21 @@
       <div class="col-md-6">
         <div class="row g-3 img-sctn">
           <div class="col-6">
-            <img src="imgs/banners/prueba.png" alt="Sucursal 1">
+            <img src="imgs/home/suc1.png" alt="Sucursal 1">
           </div>
           <div class="col-6">
-            <img src="imgs/banners/prueba.png" alt="Sucursal 2">
+            <img src="imgs/home/suc2.png" alt="Sucursal 2">
           </div>
           <div class="col-6">
-            <img src="imgs/banners/prueba.png" alt="Sucursal 3">
+            <img src="imgs/home/suc3.png" alt="Sucursal 3">
           </div>
           <div class="col-6">
-            <img src="imgs/banners/prueba.png" alt="Sucursal 4">
+            <img src="imgs/home/suc4.png" alt="Sucursal 4">
           </div>
         </div>
       </div>
       <div class="col-md-6 d-flex flex-column justify-content-center text-center">
-        <h2 class="ttl-2 fnt-oleo txt-clr-p mt-4 mt-md-0">Conoce nuestras sucursales</h2>
+        <h2 class="ttl-2 fnt-oleo txt-clr-q mt-4 mt-md-0">Conoce nuestras sucursales</h2>
         <a type="button" class="btn btn-light mt-3 mx-5 brdr-0 fnt-ssp" href="#">Ver ubicaciones</a>
       </div>
     </div>

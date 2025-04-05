@@ -6,50 +6,36 @@
   <h1 class="text-center fw-bold ttl-1 fnt-oleo txt-clr-l">Contact</h1>
 </section>
 
-<section class="container-fluid p-5 h-sctn bg-clr-w d-flex align-items-center">
-  <div class="container text-center">
-    <section>
-      <div class="row">
-        <div class="col-md-6 d-flex flex-column justify-content-center">
-          <h2 class="ttl-2 fnt-oleo txt-clr-p">¿Quiénes Somos?</h2>
-          <p>Somos un equipo apasionado por preservar y compartir las recetas ancestrales que han
-            pasado de generación en generación, utilizando ingredientes auténticos que nacen
-            de la tierra y cuentan historias únicas.</p>
-        </div>
-        <div class="col-md-6 img-sctn">
-          <img src="imgs/banners/image.png"  alt="We">
-        </div>
-      </div>
-    </section>
-  </div>
-</section>
-
-<section class="container-fluid h-scctn bg-clr-s py-5">
-  <div class="container text-center txt-clr-l">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="row g-3 img-sctn">
-          <div class="col-6">
-            <img src="imgs/banners/image.png" alt="Sucursal 1">
-          </div>
-          <div class="col-6">
-            <img src="imgs/banners/image.png" alt="Sucursal 2">
-          </div>
-          <div class="col-6">
-            <img src="imgs/banners/image.png" alt="Sucursal 3">
-          </div>
-          <div class="col-6">
-            <img src="imgs/banners/image.png" alt="Sucursal 4">
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 d-flex flex-column justify-content-center text-center">
-        <h2 class="ttl-2 fnt-oleo txt-clr-p mt-4 mt-md-0">Conoce nuestras sucursales</h2>
-        <a type="button" class="btn btn-light mt-3 mx-5 brdr-0" href="#">Ver ubicaciones</a>
-      </div>
+<div class="container">
+  <div class="contact-section">
+    <div class="header">
+      <span>Nutricionista - Dr. Fabio Rocha</span>
+      <img src="doctor.jpg" alt="Dr. Fabio Rocha">
+    </div>
+    <div class="contact-info">
+      <p><i class="fas fa-map-marker-alt"></i>Heroico Colegio Militar, Manantiales, 93400 Papantla, Ver.</p>
+      <p><i class="fas fa-envelope"></i> contacto@sabortot.com</p>
+      <p><i class="fas fa-phone"></i> +527848422144</p>
+      <button class="btn btn-warning fw-bold">Agendar Cita</button>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <div class="map-container">
+      <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.6355425402266!2d-99.15251298509487!3d19.390340586907302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35862b8d1d%3A0x29c3bbf2bf1b2d2c!2sGoogle%20Mexico!5e0!3m2!1sen!2smx!4v1609500339831!5m2!1sen!2smx"
+          width="100%"
+          height="300"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy">
+      </iframe>
     </div>
   </div>
-</section>
+</div>
 
 
 @endsection

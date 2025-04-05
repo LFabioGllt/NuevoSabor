@@ -21,27 +21,24 @@ class RegisterController extends Controller
     // Registrar en la BD el usuario registrado
   public function handle()
   {
-      // Validación de datos del registro de usuario
     request()->validate([
       'name' => ['required', 'string', 'max:100'],
       'email' => ['required', 'email', 'max:150'],
       'password' => ['required', 'string', 'min:4', 'max:100', 'confirmed']
     ]);
 
-      // Crear el registro en la tabla users
     $user = User::create([
       'name' => request('name'),
       'email' => request('email'),
       'password' => Hash::make(request('password'))
     ]);
 
-      // Evento de confirmación
+    $user->assignRole('cliente');
+
     event(new Registered($user));
 
-      // Autenticar una vez registrado
     Auth::login($user);
 
-      // Redireccionar
     return redirect()->to(RouteServiceProvider::HOME)->with('success', 'User Registed');
   }
 }

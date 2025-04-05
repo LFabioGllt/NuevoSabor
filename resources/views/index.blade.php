@@ -1,7 +1,9 @@
 @extends('layout/main_template')
 
 @section('main-section')
+  @include('pages/home')
+@endsection
 
-@include('pages/home')
-
+@section('admin-section')
+  @include('admin/index')
 @endsection

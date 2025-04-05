@@ -13,6 +13,7 @@
 .txt-clr-b{ color: black; }
 .txt-clr-s{ color: #4F6F52; }
 .txt-clr-t{ color: #a58240; }
+.txt-clr-q{ color: #E6E1B3 }
 .txt-clr-d{ color: #8d2929; }
 
   /* Altura de seccion */
@@ -147,4 +148,61 @@
 .fab-add:hover {
   color: #dedede;
   transform: scale(1.1);
+}
+
+
+
+
+.contact-section {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 40px auto;
+  max-width: 900px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.header {
+  background-color: #28a745;
+  color: white;
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.contact-info {
+  padding: 20px 0;
+}
+.contact-info i {
+  color: #28a745;
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+.social-icons a {
+  color: #fff;
+  background-color: #28a745;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+.social-icons a:hover {
+  background-color: #218838;
+}
+.map-container {
+  margin-top: 20px;
 }

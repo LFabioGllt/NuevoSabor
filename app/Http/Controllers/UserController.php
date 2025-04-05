@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -22,7 +26,7 @@ class UserController extends Controller
    */
   public function create()
   {
-    //
+    return view ('admin/users/create');
   }
 
   /**
@@ -30,7 +34,23 @@ class UserController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    request()->validate([
+      'name' => ['required', 'string', 'max:100'],
+      'email' => ['required', 'email', 'max:150'],
+      'password' => ['required', 'string', 'min:4', 'max:100', 'confirmed']
+    ]);
+
+    $user = User::create([
+      'name' => request('name'),
+      'email' => request('email'),
+      'password' => Hash::make(request('password'))
+    ]);
+
+    $user->assignRole('admin');
+
+    event(new Registered($user));
+
+    return to_route('users.index')->with('success','User Created');
   }
 
   /**
@@ -55,13 +75,6 @@ class UserController extends Controller
   public function update(Request $request, User $user)
   {
     //
-  }
-
-  /**
-   * Show the form for deleting the specified resource.
-   */
-  public function delete(User $user){
-    echo view ('admin/users/delete', compact('user'));
   }
 
   /**

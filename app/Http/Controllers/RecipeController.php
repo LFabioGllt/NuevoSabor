@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Recipes\StoreRequest;
 use App\Models\Menu;
 use App\Models\Recipe;
 use App\Models\User;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 
 class RecipeController extends Controller
@@ -41,7 +43,7 @@ class RecipeController extends Controller
   /**
    * Store a newly created resource in storage.
    */
-  public function store(Request $request)
+  public function store(StoreRequest $request)
   {
     $data = $request->all();
     if (isset($data['image'])) {
