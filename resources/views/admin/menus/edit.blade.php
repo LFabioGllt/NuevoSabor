@@ -4,7 +4,7 @@
 
 <section class="container-fluid p-5 bg-clr-w d-flex align-items-center">
   <div class="container">
-    <div class="login-container p-3 m-auto">
+    <div class="login-container fnt-ssp p-3 m-auto">
       <h2 class="ttl-2 fnt-oleo txt-clr-t">Update {{$menu->name_menu}}</h2>
       <form action="{{route('menus.update', $menu->id)}}" method="POST" enctype="multipart/form-data">
         @csrf

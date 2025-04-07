@@ -7,7 +7,7 @@
 </a>
 
 <div class="container-fluid py-5 text-center bg-clr-s">
-  <h2 class="ttl-2 fnt-oleo txt-clr-p">User Recipes</h2>
+  <h2 class="ttl-2 fnt-oleo txt-clr-q">User Recipes</h2>
   <div class="row mt-4 justify-content-center">
     @foreach ($my_recipes as $rec)
       <div class="col-md-6 col-lg-4 mb-4 fnt-ssp">
@@ -30,9 +30,9 @@
         {{-- Modal de Borrar Receta --}}
       <div class="modal fade" id="mdl-dlt-rec{{$rec->id}}" tabindex="-1" aria-labelledby="mdl-dlt-rec{{$rec->id}}Label" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content brdr-0">
+          <div class="modal-content fnt-ssp brdr-0">
             <div class="modal-header bg-clr-p brdr-0 txt-clr-l">
-              <h1 class="modal-title fs-5" id="mdl-dlt-rec{{$rec->id}}Label">ALERT!</h1>
+              <h1 class="modal-title fs-5 fnt-oleo" id="mdl-dlt-rec{{$rec->id}}Label">ALERT!</h1>
             </div>
             <div class="modal-body">
               <p>Are you sure you want to delete the recipe: {{$rec->name_rec}}?</p>

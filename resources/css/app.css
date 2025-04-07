@@ -36,6 +36,11 @@
 .bnnr-menu{ background-image: url(/public/imgs/banners/b_menu.png); }
 .bnnr-forum{ background-image: url(/public/imgs/banners/b_forum.png); }
 .bnnr-contact{ background-image: url(/public/imgs/banners/b_contact.png); }
+.bnnr-login{
+  background-image: url(/public/imgs/banners/b_login.png);
+  background-size: max(75rem, 100%);
+  background-position: end;
+}
 
   /* Fondos */
 .bg-clr-p{ background-color: #18120D; }
@@ -141,8 +146,8 @@
   background-color: #555;
   border-radius: 50%;
   position: fixed;
-  top: 100px;
-  right: 30px;
+  top: 120px;
+  right: 80px;
   filter: drop-shadow(1px 1px 2px #555);
 }
 .fab-add:hover {

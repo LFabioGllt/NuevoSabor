@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Menus\StoreRequest;
+use App\Http\Requests\Menus\UpdateRequest;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 
@@ -28,7 +30,7 @@ class MenuController extends Controller
   /**
    * Store a newly created resource in storage.
    */
-  public function store(Request $request)
+  public function store(StoreRequest $request)
   {
     $data = $request->all();
     if (isset($data['image'])) {
@@ -59,7 +61,7 @@ class MenuController extends Controller
   /**
    * Update the specified resource in storage.
    */
-  public function update(Request $request, Menu $menu)
+  public function update(UpdateRequest $request, Menu $menu)
   {
     $data = $request->all();
     if (isset($data['image'])) {

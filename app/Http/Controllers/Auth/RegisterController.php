@@ -22,9 +22,9 @@ class RegisterController extends Controller
   public function handle()
   {
     request()->validate([
-      'name' => ['required', 'string', 'max:100'],
+      'name' => ['required', 'string', 'min:5', 'max:50'],
       'email' => ['required', 'email', 'max:150'],
-      'password' => ['required', 'string', 'min:4', 'max:100', 'confirmed']
+      'password' => ['required', 'string', 'min:8', 'max:50', 'confirmed']
     ]);
 
     $user = User::create([

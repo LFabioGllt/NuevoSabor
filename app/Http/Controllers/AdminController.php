@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Recipes\UpdateRequest;
 use App\Models\Comment;
 use App\Models\Menu;
 use App\Models\Recipe;
@@ -45,7 +46,7 @@ class AdminController extends Controller
     return view ('admin/recipes/edit', compact('recipe', 'menus'));
   }
 
-  public function updateRecipe(Request $request, Recipe $recipe)
+  public function updateRecipe(UpdateRequest $request, Recipe $recipe)
   {
     $data = $request->all();
     if (isset($data['image'])) {

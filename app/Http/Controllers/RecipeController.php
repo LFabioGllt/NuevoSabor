@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Recipes\StoreRequest;
+use App\Http\Requests\Recipes\UpdateRequest;
 use App\Models\Menu;
 use App\Models\Recipe;
 use App\Models\User;
@@ -75,7 +76,7 @@ class RecipeController extends Controller
   /**
    * Update the specified resource in storage.
    */
-  public function update(Request $request, Recipe $recipe)
+  public function update(UpdateRequest $request, Recipe $recipe)
   {
     $data = $request->all();
     if (isset($data['image'])) {

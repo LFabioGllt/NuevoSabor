@@ -4,7 +4,7 @@
 
 <section class="container-fluid p-5 bg-clr-w d-flex align-items-center">
   <div class="container">
-    <div class="login-container p-3 m-auto">
+    <div class="login-container fnt-ssp p-3 m-auto">
       <h2 class="ttl-2 fnt-oleo txt-clr-s">Add Menu</h2>
       {{-- @dump($errors->all()) --}}
       <form action="{{route('menus.store')}}" method="POST" enctype="multipart/form-data">
@@ -13,21 +13,25 @@
         <div class="mb-3"> {{-- Nombre del Platillo --}}
           <label for="name_menu" class="form-label">Dish Name</label>
           <input type="text" class="form-control brdr-0" name="name_menu" value="{{old('name_menu')}}">
+          @error('name_menu') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
         <div class="mb-3"> {{-- Descripción --}}
           <label for="description" class="form-label">Description</label>
           <textarea name="description" class="form-control brdr-0">{{old('description')}}</textarea>
+          @error('description') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
         <div class="mb-3"> {{-- Precio --}}
           <label for="price" class="form-label">Price</label>
           <input type="text" class="form-control brdr-0" name="price" value="{{old('price')}}">
+          @error('price') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
         <div class="mb-4"> {{-- Imagen --}}
           <label for="image" class="form-label">Image</label>
           <input type="file" class="form-control brdr-0" name="image">
+          @error('image') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
         <div class="text-end">

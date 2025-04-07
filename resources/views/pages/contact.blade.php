@@ -8,11 +8,11 @@
 
 <div class="container">
   <div class="contact-section">
-    <div class="header">
+    <div class="header fnt-oleo">
       <span>Nutricionista - Dr. Fabio Rocha</span>
       <img src="doctor.jpg" alt="Dr. Fabio Rocha">
     </div>
-    <div class="contact-info">
+    <div class="contact-info fnt-ssp">
       <p><i class="fas fa-map-marker-alt"></i>Heroico Colegio Militar, Manantiales, 93400 Papantla, Ver.</p>
       <p><i class="fas fa-envelope"></i> contacto@sabortot.com</p>
       <p><i class="fas fa-phone"></i> +527848422144</p>
