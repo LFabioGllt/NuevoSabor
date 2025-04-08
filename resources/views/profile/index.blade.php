@@ -36,7 +36,7 @@
             </div>
             <div class="modal-body">
               <p>Are you sure you want to delete the recipe: {{$rec->name_rec}}?</p>
-              <form action="{{route('menus.destroy', $rec->id)}}" method="POST">
+              <form action="{{route('recipes.destroy', $rec->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
 
