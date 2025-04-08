@@ -41,9 +41,9 @@
             {{-- Modal de Borrar Menu --}}
           <div class="modal fade" id="mdl-dlt-usr{{$usr->id}}" tabindex="-1" aria-labelledby="mdl-dlt-usr{{$usr->id}}Label" aria-hidden="true">
             <div class="modal-dialog">
-              <div class="modal-content brdr-0">
+              <div class="modal-content brdr-0 fnt-ssp">
                 <div class="modal-header bg-clr-p brdr-0 txt-clr-l">
-                  <h1 class="modal-title fs-5" id="mdl-dlt-usr{{$usr->id}}Label">ALERT!</h1>
+                  <h1 class="modal-title fs-5 fnt-oleo" id="mdl-dlt-usr{{$usr->id}}Label">ALERT!</h1>
                 </div>
                 <div class="modal-body">
                   <p>Are you sure you want to delete the user: {{$usr->name}}?</p>

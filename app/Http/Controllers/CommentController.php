@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Comments\StoreRequest;
+use App\Http\Requests\Comments\UpdateRequest;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 
@@ -28,7 +30,7 @@ class CommentController extends Controller
   /**
    * Store a newly created resource in storage.
    */
-  public function store(Request $request)
+  public function store(StoreRequest $request)
   {
     Comment::create($request->all());
     return to_route('comments.index')->with('success','Comment added');
@@ -47,23 +49,16 @@ class CommentController extends Controller
    */
   public function edit(Comment $comment)
   {
-    return view ('forum/edit', compact('comment'));
+    //
   }
 
   /**
    * Update the specified resource in storage.
    */
-  public function update(Request $request, Comment $comment)
+  public function update(UpdateRequest $request, Comment $comment)
   {
     $comment->update($request->all());
     return to_route('comments.index')->with('success','Updated Comment');
-  }
-
-  /**
-   * Show the form for deleting the specified resource.
-   */
-  public function delete(Comment $comment){
-    echo view ('forum/delete', compact('comment'));
   }
 
   /**

@@ -24,6 +24,9 @@
 .img-sctn img{
   width: 100%;
 }
+.img-rcp{
+  height: clamp(200px, 50vw, 500px);
+}
 
   /* Banners */
 .bnnr-sctn{
@@ -89,13 +92,13 @@
   border: 2px solid #a58240;
 }
 .comment-content { flex-grow: 1; }
-.comment-actions { gap: 15px; }
-.comment-actions i {
-  font-size: 1.5rem;
+.comment-actions { display: flex; justify-content: center; align-items: center;}
+.comm-act {
+  font-size: 1.2rem;
   cursor: pointer;
   transition: color 0.3s ease, transform 0.2s ease;
 }
-.comment-actions i:hover {
+.comm-act:hover {
   color: #a58240;
   transform: scale(1.2);
 }

@@ -18,13 +18,11 @@ class RecipeController extends Controller
   public function index()
   {
     $recipes = Recipe::paginate(5);
+    $menus = Menu::paginate(5);
 
-    return view('menu/index', compact('recipes'));
+    return view('menu/index', compact('recipes', 'menus'));
   }
 
-  /**
-   * Display a listing of the resource by user.
-   */
   public function recipesUser()
   {
     $my_recipes = Recipe::where('user_id', auth()->user()->id)->get();
@@ -60,6 +58,11 @@ class RecipeController extends Controller
    * Display the specified resource.
    */
   public function show(Recipe $recipe)
+  {
+    return view ('menu/show', compact('recipe'));
+  }
+
+  public function showRecUser(Recipe $recipe)
   {
     return view ('profile/show', compact('recipe'));
   }

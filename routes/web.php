@@ -38,11 +38,11 @@ Route::post('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'hand
 Route::resource(('/recipes'), App\Http\Controllers\RecipeController::class);
 Route::get('/recipes/{id}/my-recipes',[App\Http\Controllers\RecipeController::class, 'recipesUser'])
 -> name('recipes.user');
+Route::get('/recipes/{recipe}/user-recipe',[App\Http\Controllers\RecipeController::class, 'showRecUser'])
+-> name('recipes.user.show');
 
   // Rutas para los Comentarios
 Route::resource(('/comments'), App\Http\Controllers\CommentController::class);
-Route::get('/comments/{comment}/delete',[App\Http\Controllers\CommentController::class, 'delete'])
--> name('comments.delete');
 Route::get('/comments/{user}/my-comments',[App\Http\Controllers\CommentController::class, 'commentsUser'])
 -> name('comments.user');
 

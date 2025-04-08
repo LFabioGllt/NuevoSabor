@@ -15,7 +15,7 @@
           <img src="/imgs/recipes/{{$rec->image}}" class="card-img-top" alt="{{$rec->name_rec}}">
           <div class="text-center p-3">
             <h4 class="txt-clr-p fw-bold">{{$rec->name_rec}}</h4>
-            <a type="button" class="btn txt-clr-g" href="{{route('recipes.show', $rec)}}">
+            <a type="button" class="btn txt-clr-g" href="{{route('recipes.user.show', $rec)}}">
               <i class="fa-solid fa-book-open"></i>
             </a>
             <a type="button" class="btn txt-clr-t" href="{{route('recipes.edit', $rec)}}">

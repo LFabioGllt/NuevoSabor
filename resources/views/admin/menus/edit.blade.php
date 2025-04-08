@@ -13,21 +13,25 @@
         <div class="mb-3"> {{-- Nombre del Platillo --}}
           <label for="name_menu" class="form-label">Dish Name</label>
           <input type="text" class="form-control brdr-0" name="name_menu" value="{{$menu->name_menu}}">
+          @error('name_menu') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
         <div class="mb-3"> {{-- Descripción --}}
           <label for="description" class="form-label">Description</label> <br>
           <textarea name="description" class="form-control brdr-0" cols="50" rows="5">{{$menu->description}}</textarea>
+          @error('description') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
         <div class="mb-3"> {{-- Precio --}}
           <label for="price" class="form-label">Price</label> <br>
           <input type="text" class="form-control brdr-0" name="price" value="{{$menu->price}}">
+          @error('price') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
         <div class="mb-4"> {{-- Imagen --}}
           <label for="image" class="form-label">Image</label> <br>
           <input type="file" class="form-control brdr-0" name="image" id="formFile">
+          @error('image') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
         <div class="text-end">

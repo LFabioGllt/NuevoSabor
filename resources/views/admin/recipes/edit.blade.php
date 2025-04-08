@@ -13,7 +13,7 @@
         <div class="mb-3"> {{-- Nombre de la Receta --}}
           <label for="name_rec" class="form-label">Recipe Name</label>
           <input type="text" class="form-control brdr-0" name="name_rec" value="{{$recipe->name_rec}}">
-          {{-- @error('name_product') @include('fragments/errorsv') @enderror --}}
+          @error('name_rec') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
           {{-- Id del Usuario --}}
@@ -22,21 +22,25 @@
         <div class="mb-3"> {{-- Ingredientes --}}
           <label for="ingredients" class="form-label">Ingredients</label>
           <textarea name="ingredients" class="form-control brdr-0">{{$recipe->ingredients}}</textarea>
+          @error('ingredients') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
         <div class="mb-3"> {{-- Instrucciones --}}
           <label for="instructions" class="form-label">Instructions</label>
           <textarea name="instructions" class="form-control brdr-0">{{$recipe->instructions}}</textarea>
+          @error('instructions') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
         <div class="mb-3"> {{-- Recomendaciones --}}
           <label for="recomendation" class="form-label">Recomendation</label>
           <textarea name="recomendation" class="form-control brdr-0">{{$recipe->recomendation}}</textarea>
+          @error('recomendation') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
         <div class="mb-3"> {{-- Imagen --}}
           <label for="image" class="form-label">Image</label> <br>
           <input type="file" class="form-control brdr-0" name="image">
+          @error('image') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
         <div class="mb-3"> {{-- Referencia --}}
@@ -47,7 +51,7 @@
               <option value="{{$id}}">{{$mn}}</option>
             @endforeach
           </select>
-          <br><br>
+          @error('menu_id') <span class="txt-clr-d">*{{$message}}</span> @enderror
         </div>
 
         <div class="text-end">
